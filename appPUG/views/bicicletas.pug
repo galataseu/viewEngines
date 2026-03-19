@@ -1,8 +1,35 @@
 extends layout
 
+block styles
+  style.
+    ul {
+      justify-content: center;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      padding: 20px;
+      border: solid 1px black;
+      border-radius: 25px;
+    }
+
+    body {
+      text-align: center;
+    }
+
 block content
   h1 Venha Comprar #{title}
   a(href="bicicletas/tricicletas") Tricicletas 
   a(href="bicicletas/monocicletas") Monocicletas 
-  p Olha essa Bicicleta maneira aqui
-  image(src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf4oHABPHMVi6zzbUl55FgXMErD8Bmmh0JZA&s")
+
+  ul
+    each bike in bicicletas
+      li 
+        h3 #{bike.nome}
+        p R$ #{bike.preco}
+        img(src=bike.img width="250")
+

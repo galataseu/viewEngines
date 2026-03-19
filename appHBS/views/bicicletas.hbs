@@ -1,8 +1,35 @@
+<style>
+  ul {
+    justify-content: center;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    padding: 20px;
+    border: solid 1px black;
+    border-radius: 25px;
+  }
+
+  body {
+    text-align: center;
+  }
+</style>
+
 <h1>Venha Comprar {{title}}</h1>
 
-<a href="/bicicletas/tricicletas">Tricicletas</a>
-<a href="/bicicletas/monocicletas">Monocicletas</a>
+<a href="bicicletas/tricicletas">Tricicletas</a>
+<a href="bicicletas/monocicletas">Monocicletas</a>
 
-<p>Olha essa Bicicleta maneira aqui</p>
-
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf4oHABPHMVi6zzbUl55FgXMErD8Bmmh0JZA&s">
+<ul>
+  {{#each bicicletas}}
+    <li>
+      <h3>{{this.nome}}</h3>
+      <p>R$ {{this.preco}}</p>
+      <img src="{{this.img}}" width="250">
+    </li>
+  {{/each}}
+</ul>
